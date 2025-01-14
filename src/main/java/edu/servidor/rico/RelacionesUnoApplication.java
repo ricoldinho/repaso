@@ -21,6 +21,15 @@ public class RelacionesUnoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("INICIANDO PROYECTO");
+
+		LinkedList<Alumno> listaAlumnosLiceo = new LinkedList<>();
+
+		Instituto instituto1 = new Instituto();
+		instituto1.setNombre("Liceo La Paz");
+		instituto1.setLocalidad("A Coruña");
+		instituto1.setCapacidadAlumnos(5);
+		instituto1.setAlumnos(listaAlumnosLiceo);
+
 		Dni dni1 = new Dni();
 		dni1.setNumero("34887654");
 		dni1.setLetra('L');
@@ -34,21 +43,17 @@ public class RelacionesUnoApplication implements CommandLineRunner{
 		alumno1.setEdad(24);
 		alumno1.setModulo("DAW2");
 		alumno1.setDni(dni1);
-		Alumno alumno2 = new Alumno("Juan Cuesta", 60, "DAM1", dni2);
-		Alumno alumno3 = new Alumno("Antonio Recio", 70, "DAW2", dni3);
 
-		LinkedList<Alumno> listaAlumnosLiceo = new LinkedList<>();
+
+		Alumno alumno2 = new Alumno("Juan Cuesta", 60, "DAM1", dni2, instituto1);
+		Alumno alumno3 = new Alumno("Antonio Recio", 70, "DAW2", dni3, instituto1);
+
 		listaAlumnosLiceo.add(alumno2);
 		listaAlumnosLiceo.add(alumno3);
-		
-		Instituto instituto1 = new Instituto();
-		instituto1.setNombre("Liceo La Paz");
-		instituto1.setLocalidad("A Coruña");
-		instituto1.setCapacidadAlumnos(5);
 		instituto1.setAlumnos(listaAlumnosLiceo);
-
 		
-
+		System.out.println(alumno2);
+		System.out.println(alumno3);
 		System.out.println(instituto1);
 	}
 

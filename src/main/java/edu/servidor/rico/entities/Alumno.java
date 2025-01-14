@@ -6,18 +6,19 @@ public class Alumno {
     private int edad;
     private String modulo;
     private Dni dni;
+    private Instituto instituto;
 
     public Alumno(){}
 
     
 
-    public Alumno(String nombre, int edad, String modulo, Dni dni) {
+    public Alumno(String nombre, int edad, String modulo, Dni dni, Instituto instituto) {
         this.nombre = nombre;
         this.edad = edad;
         this.modulo = modulo;
         this.dni = dni;
+        this.instituto = instituto;
     }
-
 
 
     public String getNombre() {
@@ -52,9 +53,24 @@ public class Alumno {
         this.dni = dni;
     }
 
+
+
+    public Instituto getInstituto() {
+        return instituto;
+    }
+
+
+
+    public void setInstituto(Instituto instituto) {
+        this.instituto = instituto;
+    }
+
+
+    //quitamos el instituto del toString para que no se produzca un bucle infinito
     @Override
     public String toString() {
-        return "Alumno [nombre=" + nombre + ", edad=" + edad + ", modulo=" + modulo + ", dni=" + dni + "]";
+        return "Alumno [nombre=" + nombre + ", edad=" + edad + ", modulo=" + modulo + ", dni=" + dni + " el nombre del instituto al que acude es: " + this.instituto.getNombre() +"]";
     }
+    
 
 }
