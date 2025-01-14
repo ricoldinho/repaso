@@ -9,6 +9,17 @@ public class Alumno {
 
     public Alumno(){}
 
+    
+
+    public Alumno(String nombre, int edad, String modulo, Dni dni) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.modulo = modulo;
+        this.dni = dni;
+    }
+
+
+
     public String getNombre() {
         return nombre;
     }

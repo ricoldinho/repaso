@@ -11,6 +11,17 @@ public class Dni {
 
     public Dni(){}
 
+    
+
+    public Dni(String numero, char letra, LocalDate fechaExpedicion, LocalDate fechaValidez) {
+        this.numero = numero;
+        this.letra = letra;
+        this.fechaExpedicion = fechaExpedicion;
+        this.fechaValidez = fechaValidez;
+    }
+
+
+
     public String getNumero() {
         return numero;
     }
