@@ -72,5 +72,6 @@ public class Alumno {
         return "Alumno [nombre=" + nombre + ", edad=" + edad + ", modulo=" + modulo + ", dni=" + dni + " el nombre del instituto al que acude es: " + this.instituto.getNombre() +"]";
     }
     
+    
 
 }
