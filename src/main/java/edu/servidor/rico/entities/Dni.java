@@ -2,11 +2,25 @@ package edu.servidor.rico.entities;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Entity
+@Table(name="dnis")
 public class Dni {
-
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer id;
+    @Column(name="numero", nullable=false, length=8)
     private String numero;
+    @Column(name="letra", nullable=false, length=1)
     private char letra;
+    @Column(name="fechaExpedicion", nullable=false)
     private LocalDate fechaExpedicion;
+    @Column(name="fechaValidez", nullable=false)
     private LocalDate fechaValidez;
 
     public Dni(){}
