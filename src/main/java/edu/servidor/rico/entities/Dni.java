@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="dnis")
@@ -22,10 +23,11 @@ public class Dni {
     private LocalDate fechaExpedicion;
     @Column(name="fechaValidez", nullable=false)
     private LocalDate fechaValidez;
+    @OneToOne(mappedBy="dni")
+    private Alumno alumno;
 
     public Dni(){}
 
-    
 
     public Dni(String numero, char letra, LocalDate fechaExpedicion, LocalDate fechaValidez) {
         this.numero = numero;
@@ -33,8 +35,6 @@ public class Dni {
         this.fechaExpedicion = fechaExpedicion;
         this.fechaValidez = fechaValidez;
     }
-
-
 
     public String getNumero() {
         return numero;
@@ -71,7 +71,7 @@ public class Dni {
     @Override
     public String toString() {
         return "Dni [numero=" + numero + ", letra=" + letra + ", fechaExpedicion=" + fechaExpedicion + ", fechaValidez="
-                + fechaValidez + "]";
+                + fechaValidez + "el poseedor del DNI es:" + this.alumno.getNombre() + "]";
     }
 
     

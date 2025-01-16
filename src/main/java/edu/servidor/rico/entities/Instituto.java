@@ -2,10 +2,27 @@ package edu.servidor.rico.entities;
 
 import java.util.LinkedList;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+@Entity
+@Table(name="institutos")
 public class Instituto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(name="nombre", nullable=false, length=150)
     private String nombre;
+    @Column(name="localidad", nullable=false, length=55)
     private String localidad;
+    @Column(name="capacidadAlumnos", nullable=false, length = 4)
     private int capacidadAlumnos;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="instituto")
     private LinkedList<Alumno> alumnos;
 
 
